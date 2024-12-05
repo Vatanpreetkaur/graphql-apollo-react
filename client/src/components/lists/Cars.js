@@ -1,4 +1,6 @@
 
+
+
 import { List } from "antd";
 import CarCard from "../listItems/CarCard";
 import { useQuery } from "@apollo/client";
@@ -21,16 +23,19 @@ const Cars = () => {
     <>
       {people.length > 0 &&
         people.map(({ id, firstName, lastName }) => (
+          
           <List
-            key={id}
-            style={styles.list}
-            grid={{ gutter: 20, column: 1 }}
-            header={
-              <ListHeader id={id} firstName={firstName} lastName={lastName} />
-            }
-            footer={<Link to={`/person/${id}`}>Learn More</Link>}
-            bordered
-          >
+          key={id}
+        style={styles.list}
+        grid={{ gutter: 20, column: 1 }}
+        header={
+          <h2>
+            {firstName} {lastName}
+          </h2>
+        }
+        bordered
+        footer={<Link to={`/person/${id}`}>Learn More</Link>}
+      >
             <List.Item>
               <CarCard personId={id} />
             </List.Item>
